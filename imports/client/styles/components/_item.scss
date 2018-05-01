@@ -1,0 +1,72 @@
+.item {
+  background: $item-bg;
+  border: 1px solid $item-border;
+  margin-bottom: $space;
+  padding: $space;
+}
+
+.card {
+  display: flex;
+  word-wrap: break-word;
+  max-width: 50%;
+  flex-basis: auto;
+  white-space: pre-wrap;
+}
+
+.card-body {
+  box-shadow: $box;
+  border-radius: 0.7rem;
+  flex-grow: 0.4;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+
+.card-text {
+  color: #545151;
+}
+
+.stat {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  color: $dark-grey3;
+}
+
+.stat1 {
+  margin-top: -7%;
+}
+
+.stat2 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon__search {
+  position: absolute;
+  left: 33rem;
+  bottom: 85%;
+  cursor: pointer;
+}
+
+.ios-arrow-down {
+  cursor: pointer;
+}
+
+.icon__search1 {
+  cursor: pointer;
+}
+
+.item__message {
+  color: $item-text-color;
+}
+
+.item__status-message {
+  color: $item-text-color;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}

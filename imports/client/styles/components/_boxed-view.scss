@@ -1,0 +1,86 @@
+.boxed-view {
+  align-items: center;
+  background: $boxed-view-overlay-bg;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.boxed-view1 {
+  background: $boxed-view-overlay-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.boxed-view--modal {
+  background: fade-out($boxed-view-overlay-bg, .3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.boxed-view--modal1 {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.boxed-view__box {
+  background-color: $boxed-view-bg;
+  padding: 2.4rem;
+  text-align: center;
+  width: 24rem;
+}
+
+.boxed-view__box1 {
+  background: white;
+  text-align: center;
+  box-shadow: $box;
+  width: 14rem;
+  position: absolute;
+  border: 1px solid rgba(0,0,0,.15);
+  height: 30%;
+  border-radius: 3%;
+}
+
+.boxed-view__box2 {
+  background: white;
+  text-align: center;
+  box-shadow: $box;
+  width: 9rem;
+  position: absolute;
+  border: 1px solid rgba(0,0,0,.15);
+  height: 22%;
+  border-radius: 3%;
+}
+
+.box-align {
+  top: 10%;
+  left: 14%;
+}
+
+.box-align1 {
+  top: 18%;
+  left: 47%;
+}
+
+.boxed-view__form1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.boxed-view__form {
+  display: flex;
+  flex-grow: 1;
+  padding: 10px;
+  background-color: $grey;
+}

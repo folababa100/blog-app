@@ -1,0 +1,26 @@
+.sidebar__content {
+  overflow-y: scroll;
+  height: calc(100vh - 6rem);
+  width: 400px;
+  background-color: #fff;
+}
+
+h3 {
+  font-size: $large-font-size;
+  font-weight: 600;
+  color: $dark-grey;
+  margin: 10px 20px;
+  text-align: left;
+}
+
+.username__name {
+  border: 1px solid $user-border;
+  padding: $space1;
+  color: #545151;
+}
+
+@media only screen and (max-width: 500px) {
+  .sidebar__content {
+    display: none;
+  }
+}
