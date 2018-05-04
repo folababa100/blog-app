@@ -4,8 +4,9 @@ import { Session } from "meteor/session";
 import moment from 'moment';
 
 export const BlogListItem = (props) => {
+  const className = props.post.selected ? 'item' : 'item-selected';
   return (
-    <div onClick={() => {
+    <div className={className} onClick={() => {
       props.Session.set('selectedPostId', props.post._id)
     }}>
       <div>

@@ -18,7 +18,7 @@ Tracker.autorun(() => {
   const selectedPostId = Session.get('selectedPostId');
 
   if (selectedPostId) {
-    browserHistory.replace(`chat/${selectedPostId}`);
+    browserHistory.replace(`/dashboard/${selectedPostId}`);
   }
 })
 

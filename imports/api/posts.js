@@ -23,5 +23,49 @@ Meteor.methods({
       userId: this.userId,
       createdAt: moment().valueOf()
     })
+  },
+  'posts.remove'(_id) {
+    if (!this.userId) {
+      throw new Meteor.Error('not authorized')
+    }
+
+    new SimpleSchema ({
+      _id: {
+        type: String,
+        min: 1
+      }
+    }).validate({ _id })
+
+    Posts.remove({ _id, userId: this.userId })
+  },
+  'posts.updates'(_id, updates) {
+    if (!this.userId) {
+      throw new Meteor.Error('not authorized')
+    }
+
+    new SimpleSchema ({
+      _id: {
+        type: String,
+        min: 1
+      },
+      body: {
+        type: String,
+        optional: true
+      },
+      title: {
+        type: String,
+        optional: true
+      }
+    }).validate({ _id, ...updates })
+
+    Posts.update({
+      _id,
+      userId: this.userId
+    }, {
+      $set: {
+        createdAt: moment().valueOf,
+        ...updates
+      }
+    })
   }
 })
