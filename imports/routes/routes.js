@@ -7,6 +7,8 @@ import NotFound from '../ui/NotFound';
 import Login from '../ui/Login';
 import Dashboard from '../ui/Dashboard'
 import Editor from '../ui/Editor';
+import BlogReadPage from '../ui/BlogReadPage';
+import BlogCreatePage from '../ui/BlogCreatePage';
 
 const onEnterPostPage = (nextState) => {
   Session.set('selectedPostId', nextState.params.id);
@@ -36,8 +38,10 @@ export const routes = (
     <Route onEnter={globalOnEnter} onChange={globalOnChange}>
       <Route path="/" component={Login} privacy="unauth"/>
       <Route path="/signup" component={Signup} privacy="unauth"/>
+      <Route path="/create" component={BlogCreatePage} privacy="auth"/>
+      <Route path="/edit/:id" component={Editor} privacy="auth"  onEnter={onEnterPostPage} onLeave={onLeavePostPage}/>
+      <Route path="/read/:id" component={BlogReadPage} privacy="unauth"/>
       <Route path="/dashboard" component={Dashboard} privacy="auth"/>
-      <Route path="/dashboard/:id" component={Dashboard} privacy="auth" onEnter={onEnterPostPage} onLeave={onLeavePostPage}/>
       <Route path="*" component={NotFound}/>
     </Route>
   </Router>

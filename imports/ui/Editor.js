@@ -4,13 +4,15 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../api/posts";
 import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
+import Modal from 'react-modal';
 
 export class Editor extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       title: '',
-      body: ''
+      body: '',
+      open: false
     }
   }
   handleTitleChange(e) {
@@ -27,47 +29,39 @@ export class Editor extends React.Component {
     this.props.call('posts.remove', this.props.post._id)
     this.props.browserHistory.push('/dashboard')
   }
-  componentDidUpdate(prevProps, prevState) {
-    const currentPostId = this.props.post ? this.props.post._id : undefined;
-    const prevPostId = prevProps.post ? prevProps.post._id : undefined;
-
-    if (currentPostId && currentPostId !== prevPostId) {
-      this.setState({
-        title: this.props.post.title,
-        body: this.props.post.body
-      });
-    }
+  handleModalClose() {
+    this.setState({ open: false })
   }
   render() {
-    if (this.props.post) {
-      return (
-        <div className="editor">
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={this.handleTitleChange.bind(this)}
-            placeholder="Untitled post"
-          />
-          <textarea
-            value={this.state.body}
-            onChange={this.handleBodyChange.bind(this)}
-            placeholder="Your body here"
-          >
-          </textarea>
+    return (
+      <div className="editor">
+        <input
+          type="text"
+          value={this.state.title}
+          onChange={this.handleTitleChange.bind(this)}
+          placeholder="Untitled post"
+        />
+        <textarea
+          value={this.state.body}
+          onChange={this.handleBodyChange.bind(this)}
+          placeholder="Your body here"
+        >
+        </textarea>
+        <button onClick={() => this.setState({ open: true })} className="button">Delete Note</button>
+        <Modal
+          isOpen={this.state.open}
+          ariaHideApp={false}
+          className="boxed-view__box"
+          overlayClassName="boxed-view boxed-view--modal"
+        >
           <div>
-            <button onClick={this.handleRemoval.bind(this)} className="button">Delete Note</button>
+            <p>Are you sure you want to delete this blog post</p>
+            <button onClick={this.handleModalClose.bind(this)}>No</button>
+            <button onClick={this.handleRemoval.bind(this)} className="button">Yes</button>
           </div>
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <p>
-            {this.props.selectedPostId ? 'Note not found' : 'Please pick a note to get started'}
-          </p>
-        </div>
-      )
-    }
+        </Modal>
+      </div>
+    )
   }
 }
 

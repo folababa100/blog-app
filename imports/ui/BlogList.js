@@ -11,7 +11,6 @@ import PropTypes from 'prop-types'
 export const BlogList = (props) => {
   return (
     <div>
-      <BlogPostHeader/>
       {props.posts.length === 0 ? <EmptyBlogContainer/> : undefined}
       {props.posts.map((post) => {
         return <BlogListItem key={post._id} post={post} />

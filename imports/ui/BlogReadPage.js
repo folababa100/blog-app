@@ -1,11 +1,11 @@
 import React from 'react';
 
-export const BlogReadPage = (props) => {
-  return (
-    <div>
-      <p>A</p>
-    </div>
-  )
+export default class BlogReadPage extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>You</p>
+      </div>
+    )
+  }
 }
-
-

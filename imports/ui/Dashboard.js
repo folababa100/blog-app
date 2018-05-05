@@ -1,12 +1,12 @@
 import React from 'react';
+import PrivateHeader from './PrivateHeader';
 import BlogList from './BlogList';
-import Editor from './Editor';
 
 export default Dashboard = () => {
   return (
     <div>
+      <PrivateHeader title="Blog"/>
       <BlogList/>
-      <Editor/>
     </div>
   )
 }

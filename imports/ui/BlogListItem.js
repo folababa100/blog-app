@@ -2,6 +2,7 @@ import React from "react";
 import { withTracker } from "meteor/react-meteor-data";
 import { Session } from "meteor/session";
 import moment from 'moment';
+import { browserHistory } from 'react-router';
 
 export const BlogListItem = (props) => {
   const className = props.post.selected ? 'item' : 'item-selected';
@@ -19,6 +20,7 @@ export const BlogListItem = (props) => {
 
 export default withTracker(() => {
   return {
-    Session
+    Session,
+    browserHistory
   }
 })(BlogListItem)

@@ -4,18 +4,27 @@ import { Meteor } from "meteor/meteor";
 import { Session } from "meteor/session";
 import PropTypes from "prop-types";
 
-export const BlogPostHeader = (props) => {
-  return (
-    <div>
-      <button onClick={() => {
-          props.meteorCall('posts.insert', (err, res) => {
+export class BlogPostHeader extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      posts: []
+    }
+  }
+  render() {
+    return (
+      <div>
+        <input type="search" />
+        <button onClick={() => {
+          this.props.meteorCall('posts.insert', (err, res) => {
             if (res) {
-              props.Session.set('selectedPostId', res)
+              this.props.Session.set('selectedPostId', res)
             }
           })
         }}>Create post</button>
-    </div>
-  )
+      </div>
+    )
+  }
 }
 
 BlogPostHeader.propTypes = {
