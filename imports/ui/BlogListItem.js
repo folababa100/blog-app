@@ -11,7 +11,7 @@ export const BlogListItem = (props) => {
       props.Session.set('selectedPostId', props.post._id)
     }}>
       <div>
-        <h5>{ props.post.title || 'Untitled post' }</h5>
+        <h5>{ props.post.title }</h5>
         <p>{ moment(props.post.createdAt).format('M/DD/YY') }</p>
       </div>
     </div>

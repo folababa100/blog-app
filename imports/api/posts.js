@@ -12,14 +12,25 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  'posts.insert'() {
+  'posts.insert'(title, body) {
     if (!this.userId) {
       throw new Meteor.Error('not authorized')
     }
 
+    new SimpleSchema ({
+      title: {
+        type: String,
+        min: 1
+      },
+      body: {
+        type: String,
+        min: 1
+      }
+    })
+
     return Posts.insert({
-      title: '',
-      body: '',
+      title,
+      body,
       userId: this.userId,
       createdAt: moment().valueOf()
     })

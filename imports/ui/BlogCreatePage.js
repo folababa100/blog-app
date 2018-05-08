@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import { Session } from "meteor/session";
+import { browserHistory } from 'react-router';
 
 export class BlogCreatePage extends React.Component {
   constructor(props) {
@@ -20,12 +21,16 @@ export class BlogCreatePage extends React.Component {
     const body = e.target.value;
     this.setState({ body })
   }
-  onSubmit() {
-    this.props.call('posts.insert', (err, res) => {
-      if (res) {
-        this.props.Session.set('selectedPostId', res)
+  onSubmit(e) {
+    e.preventDefault()
+    const { title } = this.state;
+    const { body } = this.state;
+    this.props.call('posts.insert', title, body, (err, res) => {
+      if (!err) {
+        this.setState({ title: '', body: '' })
       }
     })
+    this.props.browserHistory.push('/dashboard')
   }
   render() {
     return (
@@ -45,6 +50,7 @@ export default withTracker(() => {
   return {
     selectedPostId,
     call: Meteor.call,
-    Session
+    Session,
+    browserHistory
   }
 })(BlogCreatePage)

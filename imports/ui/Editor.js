@@ -10,8 +10,8 @@ export class Editor extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      title: '',
-      body: '',
+      title: this.props.post.title,
+      body: this.props.post.body,
       open: false
     }
   }
@@ -26,6 +26,7 @@ export class Editor extends React.Component {
     this.props.call('posts.updates', this.props.post._id, { body })
   }
   handleRemoval() {
+    console.log(this.props.post._id)
     this.props.call('posts.remove', this.props.post._id)
     this.props.browserHistory.push('/dashboard')
   }
@@ -66,15 +67,12 @@ export class Editor extends React.Component {
 }
 
 Editor.propTypes = {
-  post: PropTypes.object,
-  selectedPostId: PropTypes.string,
   call: PropTypes.func.isRequired,
   browserHistory: PropTypes.object.isRequired
 }
 
 export default withTracker(() => {
-  const selectedPostId = Session.get('selectedPostId')
-
+  const selectedPostId = Session.get('selectedPostId');
   return {
     selectedPostId,
     post: Posts.findOne(selectedPostId),
