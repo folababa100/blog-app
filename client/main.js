@@ -18,11 +18,20 @@ Tracker.autorun(() => {
   const selectedPostId = Session.get('selectedPostId');
 
   if (selectedPostId) {
-    browserHistory.replace(`/edit/${selectedPostId}`);
+    browserHistory.push(`/edit/${selectedPostId}`);
+  }
+})
+
+Tracker.autorun(() => {
+  const selectedPostIdE = Session.get('selectedPostIdE');
+
+  if (selectedPostIdE) {
+    browserHistory.push(`/read/${selectedPostIdE}`)
   }
 })
 
 Meteor.startup(() => {
-  Session.set('selectedPostId', undefined)
+  Session.set('selectedPostId', undefined);
+  Session.set('selectedPostIdE', undefined)
   ReactDOM.render(routes, document.getElementById('app'));
 });

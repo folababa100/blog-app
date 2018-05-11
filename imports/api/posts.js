@@ -1,7 +1,8 @@
 import { Mongo } from "meteor/mongo";
 import { Meteor } from "meteor/meteor";
 import SimpleSchema from 'simpl-schema';
-import moment from 'moment'
+import moment from 'moment';
+import { Session } from "meteor/session";
 
 export const Posts = new Mongo.Collection("posts");
 
@@ -49,7 +50,7 @@ Meteor.methods({
 
     Posts.remove({ _id, userId: this.userId })
   },
-  'posts.updates'(_id, updates) {
+  'posts.updates'(_id, title, body) {
     if (!this.userId) {
       throw new Meteor.Error('not authorized')
     }
@@ -67,15 +68,16 @@ Meteor.methods({
         type: String,
         optional: true
       }
-    }).validate({ _id, ...updates })
+    }).validate({ _id, title, body })
 
     Posts.update({
       _id,
       userId: this.userId
     }, {
       $set: {
-        createdAt: moment().valueOf,
-        ...updates
+        title,
+        body,
+        createdAt: moment().valueOf()
       }
     })
   }

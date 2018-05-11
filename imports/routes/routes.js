@@ -6,16 +6,26 @@ import Signup from '../ui/Signup';
 import NotFound from '../ui/NotFound';
 import Login from '../ui/Login';
 import Dashboard from '../ui/Dashboard'
-import BlogEditor from '../ui/BlogEditor';
+import Editor from '../ui/Editor';
 import BlogReadPage from '../ui/BlogReadPage';
 import BlogCreatePage from '../ui/BlogCreatePage';
 
 const onEnterPostPage = (nextState) => {
   Session.set('selectedPostId', nextState.params.id);
 };
+
 const onLeavePostPage = () => {
   Session.set('selectedPostId', undefined);
 };
+
+const onEnterPostPagee = (nextState) => {
+  Session.set('selectedPostIdE', nextState.params.id);
+};
+
+const onLeavePostPagee = () => {
+  Session.set('selectedPostIdE', undefined);
+};
+
 export const onAuthChange = (isAuthenticated, currentPagePrivacy) => {
   const isUnauthenticatedPage = currentPagePrivacy === 'unauth';
   const isAuthenticatedPage = currentPagePrivacy === 'auth';
@@ -39,8 +49,8 @@ export const routes = (
       <Route path="/" component={Login} privacy="unauth"/>
       <Route path="/signup" component={Signup} privacy="unauth"/>
       <Route path="/create" component={BlogCreatePage} privacy="auth"/>
-      <Route path="/edit/:id" component={BlogEditor} privacy="auth"  onEnter={onEnterPostPage} onLeave={onLeavePostPage}/>
-      <Route path="/read/:id" component={BlogReadPage} privacy="unauth"/>
+      <Route path="/edit/:id" component={Editor} privacy="auth" onEnter={onEnterPostPage} onLeave={onLeavePostPage}/>
+      <Route path="/read/:id" component={BlogReadPage} privacy="auth" onEnter={onEnterPostPagee} onLeave={onLeavePostPagee}/>
       <Route path="/dashboard" component={Dashboard} privacy="auth"/>
       <Route path="*" component={NotFound}/>
     </Route>

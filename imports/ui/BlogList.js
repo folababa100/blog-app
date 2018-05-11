@@ -33,8 +33,7 @@ export default withTracker(() => {
       }
     }).fetch().map((post) => {
       return {
-        ...post,
-        selected: post._id === selectedPostId
+        ...post
       }
     })
   }

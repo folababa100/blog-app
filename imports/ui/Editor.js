@@ -5,6 +5,7 @@ import { Posts } from "../api/posts";
 import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
+import { Link } from 'react-router';
 
 export class Editor extends React.Component {
   constructor(props) {
@@ -18,15 +19,18 @@ export class Editor extends React.Component {
   handleTitleChange(e) {
     const title = e.target.value;
     this.setState({ title });
-    this.props.call('posts.updates', this.props.post._id, { title })
   }
   handleBodyChange(e) {
     const body = e.target.value;
     this.setState({ body });
-    this.props.call('posts.updates', this.props.post._id, { body })
+  }
+  handleUpdates() {
+    const { title } = this.state;
+    const { body } = this.state;
+    this.props.call('posts.updates', this.props.post._id, title, body);
+    this.props.browserHistory.push('/dashboard')
   }
   handleRemoval() {
-    console.log(this.props.post._id)
     this.props.call('posts.remove', this.props.post._id)
     this.props.browserHistory.push('/dashboard')
   }
@@ -36,6 +40,7 @@ export class Editor extends React.Component {
   render() {
     return (
       <div className="editor">
+        <Link to={`/read/${this.props.post._id}`}>A readable link</Link>
         <input
           type="text"
           value={this.state.title}
@@ -48,6 +53,7 @@ export class Editor extends React.Component {
           placeholder="Your body here"
         >
         </textarea>
+        <button onClick={this.handleUpdates.bind(this)}>Save changes</button>
         <button onClick={() => this.setState({ open: true })} className="button">Delete Note</button>
         <Modal
           isOpen={this.state.open}
@@ -73,6 +79,7 @@ Editor.propTypes = {
 
 export default withTracker(() => {
   const selectedPostId = Session.get('selectedPostId');
+  Meteor.subscribe('posts', selectedPostId)
   return {
     selectedPostId,
     post: Posts.findOne(selectedPostId),
