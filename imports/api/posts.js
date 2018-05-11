@@ -12,6 +12,12 @@ if (Meteor.isServer) {
   })
 }
 
+if (Meteor.isServer) {
+  Meteor.publish('post', function () {
+    return Posts.find({ _id: Session.get('selectedPostId') })
+  })
+}
+
 Meteor.methods({
   'posts.insert'(title, body) {
     if (!this.userId) {

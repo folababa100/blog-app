@@ -24,7 +24,6 @@ BlogList.propTypes = {
 }
 
 export default withTracker(() => {
-  const selectedPostId = Session.get('selectedPostId')
   Meteor.subscribe('posts')
   return {
     posts: Posts.find({}, {

@@ -6,6 +6,7 @@ import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { Link } from 'react-router';
+import { Tracker } from "meteor/tracker";
 
 export class Editor extends React.Component {
   constructor(props) {
@@ -40,7 +41,7 @@ export class Editor extends React.Component {
   render() {
     return (
       <div className="editor">
-        <Link to={`/read/${this.props.post._id}`}>A readable link</Link>
+        {/* <Link to={`/read/${this.props.post._id}`}>A readable link</Link> */}
         <input
           type="text"
           value={this.state.title}
@@ -78,11 +79,9 @@ Editor.propTypes = {
 }
 
 export default withTracker(() => {
-  const selectedPostId = Session.get('selectedPostId');
-  Meteor.subscribe('posts', selectedPostId)
+  Meteor.subscribe('post', Session.get('selectedPostId'));
   return {
-    selectedPostId,
-    post: Posts.findOne(selectedPostId),
+    post: Posts.findOne(Session.get('selectedPostId')),
     call: Meteor.call,
     browserHistory
   }
