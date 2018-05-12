@@ -13,8 +13,8 @@ if (Meteor.isServer) {
 }
 
 if (Meteor.isServer) {
-  Meteor.publish('post', function () {
-    return Posts.find({ _id: Session.get('selectedPostId') })
+  Meteor.publish('post', function (id) {
+    return Posts.find({ _id: id })
   })
 }
 

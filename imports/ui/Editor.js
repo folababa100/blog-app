@@ -3,6 +3,7 @@ import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../api/posts";
 import { browserHistory } from 'react-router';
+import { Session } from "meteor/session";
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { Link } from 'react-router';
@@ -12,8 +13,8 @@ export class Editor extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      title: this.props.post.title,
-      body: this.props.post.body,
+      title: props.post ? props.post.title : '',
+      body: props.post ? props.post.body : '',
       open: false
     }
   }
@@ -41,7 +42,7 @@ export class Editor extends React.Component {
   render() {
     return (
       <div className="editor">
-        {/* <Link to={`/read/${this.props.post._id}`}>A readable link</Link> */}
+        <Link to={`/read/${this.props.post ? this.props.post._id : ''}`}>A readable link</Link>
         <input
           type="text"
           value={this.state.title}
@@ -78,10 +79,12 @@ Editor.propTypes = {
   browserHistory: PropTypes.object.isRequired
 }
 
-export default withTracker(() => {
-  Meteor.subscribe('post', Session.get('selectedPostId'));
+export default withTracker((props) => {
+  Tracker.autorun(() => {
+    Meteor.subscribe('post', props.params.id);
+  })
   return {
-    post: Posts.findOne(Session.get('selectedPostId')),
+    post: Posts.findOne(props.params.id),
     call: Meteor.call,
     browserHistory
   }
