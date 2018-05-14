@@ -3,6 +3,7 @@ import { Meteor } from "meteor/meteor";
 import { Session } from "meteor/session";
 import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../api/posts";
+import PropTypes from 'prop-types';
 
 export const BlogReadPage = (props) => {
   return (
@@ -11,6 +12,10 @@ export const BlogReadPage = (props) => {
       <p>{props.post ? props.post.body : ''}</p>
     </div>
   )
+}
+
+BlogReadPage.propTypes = {
+  post: PropTypes.object.isRequired
 }
 
 export default withTracker((props) => {

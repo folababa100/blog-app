@@ -43,7 +43,7 @@ export const globalOnEnter = (nextState) => {
   const lastRoute = nextState.routes[nextState.routes.length - 1];
   Session.set('currentPagePrivacy', lastRoute.privacy);
 };
-export const routes = (
+export default Routes = () => (
   <Router history={browserHistory}>
     <Route onEnter={globalOnEnter} onChange={globalOnChange}>
       <Route path="/" component={Login} privacy="unauth"/>

@@ -76,7 +76,8 @@ export class Editor extends React.Component {
 
 Editor.propTypes = {
   call: PropTypes.func.isRequired,
-  browserHistory: PropTypes.object.isRequired
+  browserHistory: PropTypes.object.isRequired,
+  post: PropTypes.object.isRequired
 }
 
 export default withTracker((props) => {

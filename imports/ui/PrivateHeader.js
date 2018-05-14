@@ -15,7 +15,8 @@ export const PrivateHeader = (props) => {
 }
 
 PrivateHeader.propTypes = {
-  handleAccountLogout: PropTypes.func.isRequired
+  handleAccountLogout: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired
 } 
 
 export default withTracker(() => {

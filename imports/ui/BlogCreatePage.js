@@ -45,12 +45,14 @@ export class BlogCreatePage extends React.Component {
   }
 }
 
+BlogCreatePage.propTypes = {
+  browserHistory: PropTypes.object.isRequired,
+  call: PropTypes.func.isRequired
+}
+
 export default withTracker(() => {
-  const selectedPostId = Session.get('selectedPostId');
   return {
-    selectedPostId,
     call: Meteor.call,
-    Session,
     browserHistory
   }
 })(BlogCreatePage)
