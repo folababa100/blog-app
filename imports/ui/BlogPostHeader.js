@@ -5,12 +5,6 @@ import { Session } from "meteor/session";
 import PropTypes from "prop-types";
 
 export class BlogPostHeader extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      posts: []
-    }
-  }
   render() {
     return (
       <div>

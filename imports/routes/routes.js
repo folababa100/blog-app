@@ -50,7 +50,7 @@ export const routes = (
       <Route path="/signup" component={Signup} privacy="unauth"/>
       <Route path="/create" component={BlogCreatePage} privacy="auth"/>
       <Route path="/edit/:id" component={Editor} privacy="auth" onEnter={onEnterPostPage} onLeave={onLeavePostPage}/>
-      <Route path="/read/:id" component={BlogReadPage} privacy="auth" onEnter={onEnterPostPagee} onLeave={onLeavePostPagee}/>
+      <Route path="/read/:id" component={BlogReadPage} privacy="unauth" onEnter={onEnterPostPagee} onLeave={onLeavePostPagee}/>
       <Route path="/dashboard" component={Dashboard} privacy="auth"/>
       <Route path="*" component={NotFound}/>
     </Route>

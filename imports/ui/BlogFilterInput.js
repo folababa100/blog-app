@@ -11,7 +11,7 @@ export const BlogFIlterInput = (props) => {
         <option>By Title</option>
         <option>By Date</option>
       </select>
-      <button onClick={() => props.dashboard()}>Add Post</button>
+      <button className="btn btn-primary" onClick={() => props.dashboard()}>Add Post</button>
     </div>
   )
 }
