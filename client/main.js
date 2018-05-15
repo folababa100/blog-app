@@ -42,8 +42,6 @@ let hasRender = false;
 const RenderApp = () => {
   if(!hasRender) {
     ReactDOM.render(jsx, document.getElementById('app'));
-  } else {
-    ReactDOM.render(<LoadingPage/>, document.getElementById('app'));
   }
   hasRender = true;
 }
@@ -51,5 +49,6 @@ const RenderApp = () => {
 Meteor.startup(() => {
   Session.set('selectedPostId', undefined);
   Session.set('selectedPostIdE', undefined)
+  ReactDOM.render(<LoadingPage/>, document.getElementById('app'));
   RenderApp()
 });

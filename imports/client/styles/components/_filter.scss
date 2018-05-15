@@ -1,0 +1,31 @@
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: $space-top;
+  height: 5rem;
+}
+
+.filter__select {
+  border-radius: $radius;
+}
+
+.form-control {
+  display: block;
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}

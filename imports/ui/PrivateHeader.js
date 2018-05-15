@@ -8,7 +8,7 @@ export const PrivateHeader = (props) => {
     <div className="header">
       <div className="header__content">
         <h1 className="header__title">{props.title}</h1>
-        <button onClick={() => props.handleAccountLogout()} className="button button--link-text">Logout</button>
+        <button onClick={() => props.handleAccountLogout()} className="button button__logout">Logout</button>
       </div>
     </div>
   )

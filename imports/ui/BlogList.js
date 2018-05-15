@@ -10,11 +10,13 @@ import PropTypes from 'prop-types'
 
 export const BlogList = (props) => {
   return (
-    <div>
-      {props.posts.length === 0 ? <EmptyBlogContainer/> : undefined}
-      {props.posts.map((post) => {
-        return <BlogListItem key={post._id} post={post} />
-      })}
+    <div className="container">
+      <div className="container__content">
+        {props.posts.length === 0 ? <EmptyBlogContainer /> : undefined}
+        {props.posts.map((post) => {
+          return <BlogListItem key={post._id} post={post} />
+        })}
+      </div>
     </div>
   )
 }

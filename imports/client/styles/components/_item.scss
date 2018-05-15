@@ -1,27 +1,28 @@
-.item {
-  background: $item-bg;
-  border: 1px solid $item-border;
-  margin-bottom: $space;
-  padding: $space;
-}
-
 .card {
   display: flex;
   word-wrap: break-word;
-  max-width: 50%;
+  width: 64%;
   flex-basis: auto;
   white-space: pre-wrap;
 }
 
 .card-body {
-  box-shadow: $box;
   border-radius: 0.7rem;
+  border: 1px solid rgba(0, 0, 0, 0.13); 
   flex-grow: 0.4;
   padding: 1.25rem;
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
   color: #000;
+  width: 100%;
+  cursor: pointer;
+}
+
+.card-body:hover {
+  box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.13);
+  border: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .card-text {

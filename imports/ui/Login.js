@@ -35,7 +35,7 @@ export default class Login extends React.Component {
           <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form1">
             <input type="email" ref="email" name="email" placeholder="Email or username"/>
             <input type="password" ref="password" name="password" placeholder="Password"/>
-            <button className="button">Login</button>
+            <button className="button button__blue">Login</button>
           </form>
 
           <Link to="/signup">Need an account?</Link>

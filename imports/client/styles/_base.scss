@@ -24,7 +24,8 @@ h2 {
 }
 
 h5 {
-  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 100;
 }
 
 .error-state {
@@ -48,12 +49,17 @@ input[type=text] {
 
 input[type=email], 
 input[type=password], 
-input[type=username], 
-input[type=name], 
-input[type=description] {
+input[type=username] {
   border: 1px solid $input-border;
   font-size: $base-font-size;
   margin-bottom: $space;
+  padding: $space1;
+}
+
+input[type=search],
+select {
+  border: 1px solid $input-border;
+  font-size: $base-font-size;
   padding: $space1;
 }
 

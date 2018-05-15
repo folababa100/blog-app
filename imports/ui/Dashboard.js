@@ -6,9 +6,11 @@ import BlogFilterInput from './BlogFilterInput';
 export default Dashboard = () => {
   return (
     <div>
-      <PrivateHeader title="Blog"/>
-      <BlogFilterInput/>
-      <BlogList/>
+      <PrivateHeader title="Blog" />
+      <div className="container__fluid">
+        <BlogFilterInput />
+        <BlogList />
+      </div>
     </div>
   )
 }

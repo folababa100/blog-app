@@ -6,13 +6,13 @@ import PropTypes from 'prop-types'
 
 export const BlogFIlterInput = (props) => {
   return (
-    <div>
-      <input type="search"/>
-      <select>
+    <div className="filter">
+      <input placeholder="Search" className="form-control" type="search"/>
+      <select className="form-control filter__select">
         <option>By Title</option>
         <option>By Date</option>
       </select>
-      <button className="btn btn-primary" onClick={() => props.dashboard()}>Add Post</button>
+      <button className="button button__blue button--secondary" onClick={() => props.dashboard()}>Add Post</button>
     </div>
   )
 }
