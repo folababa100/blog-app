@@ -4,6 +4,7 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import { Session } from "meteor/session";
 import { browserHistory } from 'react-router';
+import PrivateHeader  from './PrivateHeader'
 
 export class BlogCreatePage extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ export class BlogCreatePage extends React.Component {
   render() {
     return (
       <div>
+        <PrivateHeader title="Blog" />
         <form onSubmit={this.onSubmit.bind(this)}>
           <input type="text" onChange={this.handleTitleChange.bind(this)} />
           <textarea onChange={this.handleBodyChange.bind(this)}></textarea>

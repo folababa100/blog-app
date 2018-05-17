@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { Link } from 'react-router';
 import { Tracker } from "meteor/tracker";
+import PrivateHeader from './PrivateHeader';
 
 export class Editor extends React.Component {
   constructor(props) {
@@ -41,34 +42,48 @@ export class Editor extends React.Component {
   }
   render() {
     return (
-      <div className="editor">
-        <Link to={`/read/${this.props.post ? this.props.post._id : ''}`}>A readable link</Link>
-        <input
-          type="text"
-          value={this.state.title}
-          onChange={this.handleTitleChange.bind(this)}
-          placeholder="Untitled post"
-        />
-        <textarea
-          value={this.state.body}
-          onChange={this.handleBodyChange.bind(this)}
-          placeholder="Your body here"
-        >
-        </textarea>
-        <button onClick={this.handleUpdates.bind(this)}>Save changes</button>
-        <button onClick={() => this.setState({ open: true })} className="button">Delete Note</button>
-        <Modal
-          isOpen={this.state.open}
-          ariaHideApp={false}
-          className="boxed-view__box"
-          overlayClassName="boxed-view boxed-view--modal"
-        >
-          <div>
-            <p>Are you sure you want to delete this blog post</p>
-            <button onClick={this.handleModalClose.bind(this)}>No</button>
-            <button onClick={this.handleRemoval.bind(this)} className="button">Yes</button>
+      <div>
+        <PrivateHeader title="Blog" />
+        <div className="editor">
+          <div className="editor__content">
+            <Link className="a" to={`/read/${this.props.post ? this.props.post._id : ''}`}>A readable link</Link>
+            <div>
+              <input
+                type="text"
+                value={this.state.title}
+                onChange={this.handleTitleChange.bind(this)}
+                placeholder="Untitled post"
+                className="blog--title"
+              />
+            </div>
+            <div>
+              <textarea
+                value={this.state.body}
+                onChange={this.handleBodyChange.bind(this)}
+                className="blog--body"
+                cols="100"
+                rows="23"
+              >
+              </textarea>
+            </div>
+            <div className="editor__button">
+              <button onClick={this.handleUpdates.bind(this)} className="button button__blue">Save changes</button>
+              <button onClick={() => this.setState({ open: true })} className="button button__red x5">Delete Note</button>
+              <Modal
+                isOpen={this.state.open}
+                ariaHideApp={false}
+                className="boxed-view__box"
+                overlayClassName="boxed-view boxed-view--modal"
+              >
+                <div>
+                  <p>Are you sure you want to delete this blog post</p>
+                  <button onClick={this.handleModalClose.bind(this)}>No</button>
+                  <button onClick={this.handleRemoval.bind(this)} className="button">Yes</button>
+                </div>
+              </Modal>
+            </div>
           </div>
-        </Modal>
+        </div>
       </div>
     )
   }

@@ -1,0 +1,52 @@
+.boxed-view {
+  align-items: center;
+  background: $boxed-view-overlay-bg;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.boxed-view--modal {
+  background: fade-out($boxed-view-overlay-bg, .3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.boxed-view__box {
+  background-color: $boxed-view-bg;
+  padding: 2.4rem;
+  text-align: center;
+  width: 24rem;
+}
+
+.editor {
+  background-color: white;
+  display: flex;
+}
+
+.editor__content {
+  display: flex;
+  flex-direction: column;
+  margin: 18px 29.5rem;
+}
+
+.blog--body {
+  padding: 1rem;
+  margin-top: $space3;
+}
+
+.x5 {
+  margin-left: $space3;
+}
+
+.editor__button {
+  margin-top: $space3;
+}
+
+.blog--title {
+  margin-top: $space3;
+}

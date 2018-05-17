@@ -5,6 +5,7 @@
   line-height: 1.2;
   padding: $input-spacing;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  outline: none;
 }
 
 .button1:hover {
@@ -43,6 +44,23 @@
 .button__blue {
   background: $brand-primary;
   border-color: $brand-primary;
+  border: none;
+}
+
+.button__red {
+  background-color: $brand-secondary;
+  border-color: $brand-secondary;
+  border: none;
+}
+
+.button__red:hover {
+  background-color: darken($color: $brand-secondary, $amount: 20%);
+  border-color: darken($color: $brand-secondary, $amount: 20%);
+}
+
+.button__blue:hover {
+  background: darken($color: $brand-primary, $amount: 20%);
+  border-color: darken($color: $brand-primary, $amount: 20%);
   border: none;
 }
 

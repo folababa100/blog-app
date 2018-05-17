@@ -6,8 +6,16 @@
   height: 5rem;
 }
 
+.filter__content {
+  display: flex;
+  margin-left: 0rem;
+  width: 41rem;
+  justify-content: space-between;
+}
+
 .filter__select {
   border-radius: $radius;
+  margin-right: 10rem;
 }
 
 .form-control {

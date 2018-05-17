@@ -1,7 +1,7 @@
 .card {
   display: flex;
   word-wrap: break-word;
-  width: 64%;
+  width: 69rem;
   flex-basis: auto;
   white-space: pre-wrap;
 }
@@ -19,7 +19,7 @@
   cursor: pointer;
 }
 
-.card-body:hover {
+.card-body:active {
   box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.13);
   border: none;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out, box-shadow .15s ease-in-out;

@@ -7,11 +7,13 @@ import PropTypes from 'prop-types'
 export const BlogFIlterInput = (props) => {
   return (
     <div className="filter">
-      <input placeholder="Search" className="form-control" type="search"/>
-      <select className="form-control filter__select">
-        <option>By Title</option>
-        <option>By Date</option>
-      </select>
+      <div className="filter__content">
+        <input placeholder="Search" className="form-control" type="search" autoComplete="off" spellCheck="false" />
+        <select className="form-control filter__select">
+          <option>By Title</option>
+          <option>By Date</option>
+        </select>
+      </div>
       <button className="button button__blue button--secondary" onClick={() => props.dashboard()}>Add Post</button>
     </div>
   )
@@ -25,6 +27,6 @@ export default withTracker(() => {
   return {
     call: Meteor.call,
     dashboard: () => browserHistory.push('/create')
-    
+
   }
 })(BlogFIlterInput)
