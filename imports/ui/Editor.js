@@ -1,16 +1,12 @@
 import React from 'react';
-import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../api/posts";
-import { browserHistory } from 'react-router';
-import { Session } from "meteor/session";
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { Link } from 'react-router';
-import { Tracker } from "meteor/tracker";
 import PrivateHeader from './PrivateHeader';
 
-export class Editor extends React.Component {
+export default class Editor extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -46,7 +42,7 @@ export class Editor extends React.Component {
         <PrivateHeader title="Blog" />
         <div className="editor">
           <div className="editor__content">
-            <Link className="a" to={`/read/${this.props.post ? this.props.post._id : ''}`}>A readable link</Link>
+            <Link className="a" to={`/read/${this.props.post ? this.props.post._id : ''}`}>{`A readable page available at http://localhost:3000/read/${this.props.post ? this.props.post._id : ''}`}</Link>
             <div>
               <input
                 type="text"
@@ -67,8 +63,8 @@ export class Editor extends React.Component {
               </textarea>
             </div>
             <div className="editor__button">
-              <button onClick={this.handleUpdates.bind(this)} className="button button__blue">Save changes</button>
-              <button onClick={() => this.setState({ open: true })} className="button button__red x5">Delete Note</button>
+              <button onClick={this.handleUpdates.bind(this)} className="button button--secondary button__blue">Save changes</button>
+              <button onClick={() => this.setState({ open: true })} className="button button--secondary button__red x5">Delete Note</button>
               <Modal
                 isOpen={this.state.open}
                 ariaHideApp={false}
@@ -94,15 +90,3 @@ Editor.propTypes = {
   browserHistory: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired
 }
-
-export default withTracker((props) => {
-  Tracker.autorun(() => {
-    Meteor.subscribe('post', props.params.id);
-  })
-  return {
-    post: Posts.findOne(props.params.id),
-    call: Meteor.call,
-    browserHistory
-  }
-
-})(Editor)

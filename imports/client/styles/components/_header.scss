@@ -1,7 +1,6 @@
 .header {
   background: $brand-primary;
   color: $header-color;
-  height: $nav-space;
 }
 
 .header__content {
@@ -10,6 +9,8 @@
   max-width: $site-max-width;
   margin: 0 auto;
   padding: $space;
+  align-items: center;
+  height: $nav-space;
 }
 
 .header__title {

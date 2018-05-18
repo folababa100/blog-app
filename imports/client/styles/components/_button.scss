@@ -54,13 +54,14 @@
 }
 
 .button__red:hover {
-  background-color: darken($color: $brand-secondary, $amount: 20%);
-  border-color: darken($color: $brand-secondary, $amount: 20%);
+  background-color: darken($color: $brand-secondary, $amount: 10%);
+  border-color: darken($color: $brand-secondary, $amount: 10%);
+  border: none;
 }
 
 .button__blue:hover {
-  background: darken($color: $brand-primary, $amount: 20%);
-  border-color: darken($color: $brand-primary, $amount: 20%);
+  background: darken($color: $brand-primary, $amount: 10%);
+  border-color: darken($color: $brand-primary, $amount: 10%);
   border: none;
 }
 

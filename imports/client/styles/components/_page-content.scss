@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-top: $space;
+  width: 100%;
 }
 
 .container__fluid {
@@ -16,4 +17,8 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+}
+
+.container__read {
+  margin-top: 10rem
 }

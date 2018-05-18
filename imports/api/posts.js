@@ -39,7 +39,8 @@ Meteor.methods({
       title,
       body,
       userId: this.userId,
-      createdAt: moment().valueOf()
+      createdAt: moment().valueOf(),
+      username: Meteor.user().username
     })
   },
   'posts.remove'(_id) {
