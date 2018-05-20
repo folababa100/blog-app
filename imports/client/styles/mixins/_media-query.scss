@@ -1,5 +1,5 @@
-@mixin desktop {
-  @media (min-width: 50rem) {
+@mixin phone {
+  @media (max-width: 496px) {
     @content
   }
 }

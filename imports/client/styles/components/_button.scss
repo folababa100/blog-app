@@ -6,6 +6,7 @@
   padding: $input-spacing;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   outline: none;
+  white-space: nowrap;
 }
 
 .button1:hover {

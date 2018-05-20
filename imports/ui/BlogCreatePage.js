@@ -4,7 +4,7 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import { Session } from "meteor/session";
 import { browserHistory } from 'react-router';
-import PrivateHeader  from './PrivateHeader';
+import PrivateHeader from './PrivateHeader';
 
 export class BlogCreatePage extends React.Component {
   constructor(props) {
@@ -37,29 +37,30 @@ export class BlogCreatePage extends React.Component {
     return (
       <div>
         <PrivateHeader title="Blog" />
-        <div className="editor">
-          <div className="editor__content">
-            <div>
-              <input
-                type="text"
-                value={this.state.title}
-                onChange={this.handleTitleChange.bind(this)}
-                placeholder="Untitled post"
-                className="blog--title"
-              />
-            </div>
-            <div>
-              <textarea
-                value={this.state.body}
-                onChange={this.handleBodyChange.bind(this)}
-                className="blog--body"
-                cols="100"
-                rows="23"
-              >
-              </textarea>
-            </div>
-            <div className="editor__button">
-              <button onClick={this.onSubmit.bind(this)} className="button button--secondary button__blue">Save</button>
+        <div className="filter">
+          <div className="row">
+            <div className="editor__content">
+              <div>
+                <input
+                  type="text"
+                  value={this.state.title}
+                  onChange={this.handleTitleChange.bind(this)}
+                  placeholder="Untitled post"
+                  className="blog--title form-control"
+                />
+              </div>
+              <div>
+                <textarea
+                  value={this.state.body}
+                  onChange={this.handleBodyChange.bind(this)}
+                  className="blog--body form-control"
+                  rows="15"
+                >
+                </textarea>
+              </div>
+              <div className="editor__button">
+                <button onClick={this.onSubmit.bind(this)} className="button button--secondary button__blue">Save</button>
+              </div>
             </div>
           </div>
         </div>

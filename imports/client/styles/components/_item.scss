@@ -1,23 +1,26 @@
 .card {
   display: flex;
   word-wrap: break-word;
-  width: 69rem;
+  width: 100%;
   flex-basis: auto;
   white-space: pre-wrap;
-  position: relative;
+  justify-content: center;
+  @include phone {
+    margin-top: 4rem;
+  }
 }
 
 .card-body {
+  border: 1px solid rgba(0, 0, 0, 0.13);
   border-radius: 0.7rem;
-  border: 1px solid rgba(0, 0, 0, 0.13); 
-  flex-grow: 0.4;
+  flex-grow: 0.5;
   padding: 1.25rem;
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
   color: #000;
-  width: 100%;
   cursor: pointer;
+  width: 12%
 }
 
 .card-body:active {

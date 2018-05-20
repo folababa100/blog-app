@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   font-size: $base-font-size;
 }
 
@@ -50,10 +50,7 @@ a {
 }
 
 input[type=text] {
-  border: 1px solid $input-border;
-  font-size: $base-font-size;
-  padding: $input-spacing;
-  width: 55rem;
+  width: 70%;
 }
 
 input[type=email], 
@@ -65,11 +62,18 @@ input[type=username] {
   padding: $space1;
 }
 
-input[type=search],
-select {
+input[type=search] {
   border: 1px solid $input-border;
   font-size: $base-font-size;
   padding: $space1;
+  width: 100%;
+}
+
+select {
+  border: 1px solid $input-border;
+  font-size: $base-font-size;
+  padding: 1.6rem;
+  width: 100%;
 }
 
 

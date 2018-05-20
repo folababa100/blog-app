@@ -7,12 +7,14 @@ import PropTypes from 'prop-types'
 
 export const BlogListItem = (props) => {
   return (
-    <div className="card" onClick={() => {
-      props.Session.set('selectedPostId', props.post._id)
-    }}>
-      <div className="card-body">
-        <h5>{ props.post.title }</h5>
-        <p>{ moment(props.post.createdAt).format('M/DD/YY') }</p>
+    <div>
+      <div className="card" onClick={() => {
+        props.Session.set('selectedPostId', props.post._id)
+      }}>
+        <div className="card-body">
+          <h5>{props.post.title}</h5>
+          <p>{moment(props.post.createdAt).format('M/DD/YY')}</p>
+        </div>
       </div>
     </div>
   )

@@ -8,8 +8,10 @@ export default Dashboard = () => {
     <div>
       <PrivateHeader title="Blog" />
       <div className="container__fluid">
-        <BlogFilterInput />
-        <BlogList />
+        <div>
+          <BlogFilterInput />
+          <BlogList />
+        </div>
       </div>
     </div>
   )

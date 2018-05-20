@@ -40,43 +40,44 @@ export default class Editor extends React.Component {
     return (
       <div>
         <PrivateHeader title="Blog" />
-        <div className="editor">
-          <div className="editor__content">
-            <Link className="a" to={`/read/${this.props.post ? this.props.post._id : ''}`}>{`A readable page available at http://localhost:3000/read/${this.props.post ? this.props.post._id : ''}`}</Link>
-            <div>
-              <input
-                type="text"
-                value={this.state.title}
-                onChange={this.handleTitleChange.bind(this)}
-                placeholder="Untitled post"
-                className="blog--title"
-              />
-            </div>
-            <div>
-              <textarea
-                value={this.state.body}
-                onChange={this.handleBodyChange.bind(this)}
-                className="blog--body"
-                cols="100"
-                rows="23"
-              >
-              </textarea>
-            </div>
-            <div className="editor__button">
-              <button onClick={this.handleUpdates.bind(this)} className="button button--secondary button__blue">Save changes</button>
-              <button onClick={() => this.setState({ open: true })} className="button button--secondary button__red x5">Delete Note</button>
-              <Modal
-                isOpen={this.state.open}
-                ariaHideApp={false}
-                className="boxed-view__box"
-                overlayClassName="boxed-view boxed-view--modal"
-              >
-                <div>
-                  <p>Are you sure you want to delete this blog post</p>
-                  <button onClick={this.handleModalClose.bind(this)}>No</button>
-                  <button onClick={this.handleRemoval.bind(this)} className="button">Yes</button>
-                </div>
-              </Modal>
+        <div className="filter">
+          <div className="row">
+            <div className="editor__content">
+              <Link className="blog--title a" to={`/read/${this.props.post ? this.props.post._id : ''}`}>{`A readable page available at http://localhost:3000/read/${this.props.post ? this.props.post._id : ''}`}</Link>
+              <div>
+                <input
+                  type="text"
+                  value={this.state.title}
+                  onChange={this.handleTitleChange.bind(this)}
+                  placeholder="Untitled post"
+                  className="blog--title form-control"
+                />
+              </div>
+              <div>
+                <textarea
+                  value={this.state.body}
+                  onChange={this.handleBodyChange.bind(this)}
+                  className="blog--body form-control"
+                  rows="15"
+                >
+                </textarea>
+              </div>
+              <div className="editor__button">
+                <button onClick={this.handleUpdates.bind(this)} className="button button--secondary button__blue">Save changes</button>
+                <button onClick={() => this.setState({ open: true })} className="button button--secondary button__red x5">Delete Note</button>
+                <Modal
+                  isOpen={this.state.open}
+                  ariaHideApp={false}
+                  className="boxed-view__box"
+                  overlayClassName="boxed-view boxed-view--modal"
+                >
+                  <div>
+                    <p>Are you sure you want to delete this blog post</p>
+                    <button onClick={this.handleModalClose.bind(this)}>No</button>
+                    <button onClick={this.handleRemoval.bind(this)} className="button">Yes</button>
+                  </div>
+                </Modal>
+              </div>
             </div>
           </div>
         </div>

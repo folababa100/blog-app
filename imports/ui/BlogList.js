@@ -12,9 +12,11 @@ import FlipMove from 'react-flip-move';
 export const BlogList = (props) => {
   return (
     <div className="container">
-      <div className="container__content">
+      <div className="container__fluid">
         <FlipMove maintainContainerHeight={true}>
-          {props.posts.length === 0 ? <EmptyBlogContainer /> : undefined}
+          <div className="container__content">
+            {props.posts.length === 0 ? <EmptyBlogContainer /> : undefined}
+          </div>
           {props.posts.map((post) => {
             return <BlogListItem key={post._id} post={post} />
           })}

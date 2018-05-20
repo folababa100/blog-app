@@ -1,33 +1,113 @@
-.filter {
+.container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: $space-top;
-  height: 5rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  margin-right: -15px;
 }
 
-.filter__content {
+.filter {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .filter {
+    max-width: 540px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .filter {
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .filter {
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .filter {
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.filter--content {
   display: flex;
   margin-left: 0rem;
-  width: 41rem;
   justify-content: space-between;
+  max-width: 5 / 12 * $percent;
+  flex: 0 0 5 / 12 * $percent;
+  padding-left: 15px;
+  padding-right: 15px; // @include phone {
+  //   width: 41rem;
+  // }
 }
 
-.filter__select {
-  border-radius: $radius;
-  margin-right: 10rem;
+.filter--button {
+  max-width: 2 / 12 * $percent;
+  flex: 0 0 2 / 12 * $percent;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 576px) {
+  .filter--button {
+    max-width: 25.66667%;
+    flex: 0 0 25.66667%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+// .filter--button {
+//   @include phone 
+// }
+.filter--input {
+  display: flex;
+  max-width: 3 / 12 * $percent;
+  flex: 0 0 3 / 12 * $percent;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .form-control {
   display: block;
-  padding: .375rem .75rem;
   line-height: 1.5;
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.4rem;
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: .25rem;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.blog--body {
+  margin-top: $space3;
+  font-size: 1.9rem;
+}
+
+.percent {
+  width: 100%;
+  padding: 1.8rem;
 }
 
 .form-control:focus {
@@ -35,5 +115,5 @@
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
 }
